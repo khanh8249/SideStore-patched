@@ -2417,7 +2417,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		A80392492F552F4C00097AF1 /* XCRemoteSwiftPackageReference "minimuxer" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/khanh8249/minimuxer";
+			repositoryURL = "https://github.com/SideStore/minimuxer";
 			requirement = {
 				branch = develop;
 				kind = branch;
@@ -2425,7 +2425,7 @@
 		};
 		A803924C2F552FDA00097AF1 /* XCRemoteSwiftPackageReference "AltSign" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/khanh8249/AltSign";
+			repositoryURL = "https://github.com/SideStore/AltSign";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.1.0;
