@@ -73,3 +73,9 @@ local-build.sh
 
 source-metadata.json
 release-notes.md
+
+# Test folders (local only)
+test-rpk/
+test-altsign/
+test-minimuxer/
+test-minimuxer-check/
