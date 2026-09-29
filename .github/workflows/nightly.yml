@@ -123,6 +123,28 @@ jobs:
           mkdir -p build/logs
           python3 scripts/ci/workflow.py boot-sim-async "iPhone 17 Pro"
 
+      - name: Debug SPM resolve verbose
+        if: steps.build_gate.outputs.should_skip != 'true'
+        run: |
+          echo "==========================================="
+          echo "DEBUG: SPM RESOLVE VERBOSE"
+          echo "==========================================="
+          PROJECT=$(find . -maxdepth 3 -name "AltStore.xcodeproj" -type d | head -1)
+          echo "Project: $PROJECT"
+          rm -rf ~/Library/Caches/org.swift.swiftpm 2>/dev/null || true
+          rm -rf ~/Library/Developer/Xcode/DerivedData/* 2>/dev/null || true
+          echo "=== Running xcodebuild -resolvePackageDependencies -verbose ==="
+          xcodebuild -project "$PROJECT" -scheme SideStore -resolvePackageDependencies -verbose 2>&1 | tee /tmp/spm_verbose.log || true
+          echo ""
+          echo "=== ERROR CONTEXT ==="
+          tail -100 /tmp/spm_verbose.log
+          echo ""
+          echo "=== GREP ERROR ==="
+          grep -i -B3 -A5 "error\|fail\|checksum\|unable\|mismatch" /tmp/spm_verbose.log | tail -100 || echo "No error lines"
+          echo ""
+          echo "=== GREP RemotePairingKit ==="
+          grep -i -B3 -A5 "RemotePairingKit\|OpenSSL\|binary" /tmp/spm_verbose.log | tail -100 || echo "No RemotePairingKit"
+
       - name: Build
         if: steps.build_gate.outputs.should_skip != 'true'
         id: build
