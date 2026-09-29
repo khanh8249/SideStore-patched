@@ -46,10 +46,6 @@
 
 
 #sidestore dependencies
-[submodule "Dependencies/minimuxer"]
-    path = Dependencies/minimuxer
-    url = https://github.com/khanh8249/minimuxer
-	branch = develop
 [submodule "Dependencies/em_proxy"]
 	path = Dependencies/em_proxy
 	url = https://github.com/SideStore/em_proxy
@@ -62,3 +58,7 @@
     path = Dependencies/AltSign
     url = https://github.com/khanh8249/AltSign
     branch = master
+[submodule "Dependencies/minimuxer"]
+	path = Dependencies/minimuxer
+	url = https://github.com/khanh8249/minimuxer
+	branch = develop
