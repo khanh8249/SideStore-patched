@@ -1,0 +1,4 @@
+>>>>>>>>> BUILD_CONFIG is set to 'Release', Building for Release mode! <<<<<<<<<<
+
+/bin/bash: line 1: xcodebuild: command not found
+make: *** [Makefile:195: build] Error 127
